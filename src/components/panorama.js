@@ -7,7 +7,12 @@ export default function Panorama() {
     const [currentImage, setCurrentImage] = useState(Image);
 
     const handleHotspotClick = () => {
-        setCurrentImage(image2);
+        if (currentImage === Image) {
+            setCurrentImage(image2);
+        }
+        if (currentImage === image2) {
+            setCurrentImage(Image);
+        }
     };
 
     return (
@@ -26,8 +31,8 @@ export default function Panorama() {
             >
                 <Pannellum.Hotspot
                     type="custom"
-                    pitch={14}
-                    yaw={-55}
+                    pitch={5}
+                    yaw={100}
                     handleClick={handleHotspotClick}
                     handleClickArg={{}}
                     cssClass="custom-hotspot"
