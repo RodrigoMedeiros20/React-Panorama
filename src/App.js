@@ -1,10 +1,11 @@
-import React from 'react'
-import Panorama from './components/panorama'
+import React from 'react';
+import PanoramaVideo from './components/panoramaVideo';
 
 function App() {
   return (
     <div>
-      <Panorama/>
+      {/* <PanoramaImage/> */}
+      <PanoramaVideo/>
     </div>
   );
 }
