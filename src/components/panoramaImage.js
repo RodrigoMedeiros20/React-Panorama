@@ -33,7 +33,6 @@ export default function PanoramaImage() {
                 autoLoad
                 showZoomCtrl={false}
                 showFullscreenCtrl={false}
-                hotspotDebug={true}
             >
                 {Object.values(scene.hotSpots).map((element, i) => hotSpots(element, i))}
             </Pannellum>

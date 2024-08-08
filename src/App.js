@@ -5,7 +5,7 @@ import PanoramaImage from './components/panoramaImage';
 function App() {
   return (
     <div>
-      <PanoramaImage/>
+      <PanoramaImage />
     </div>
   );
 }
