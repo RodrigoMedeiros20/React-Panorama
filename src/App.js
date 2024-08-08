@@ -1,11 +1,11 @@
 import React from 'react';
-import PanoramaVideo from './components/panoramaVideo';
+import './styles/index.css'
+import PanoramaImage from './components/panoramaImage';
 
 function App() {
   return (
     <div>
-      {/* <PanoramaImage/> */}
-      <PanoramaVideo/>
+      <PanoramaImage/>
     </div>
   );
 }

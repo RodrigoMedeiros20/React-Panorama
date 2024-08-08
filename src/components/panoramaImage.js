@@ -1,49 +1,41 @@
 import React, { useState } from 'react';
 import { Pannellum } from 'pannellum-react';
-import Image from '../images/PanoramaInterior.png';
-import image2 from '../images/image360.jpg';
+import dataScene from '../helpers/dataScene';
 
 export default function PanoramaImage() {
-    const [currentImage, setCurrentImage] = useState(Image);
 
-    const handleHotspotClick = () => {
-        if (currentImage === Image) {
-            setCurrentImage(image2);
-        }
-        if (currentImage === image2) {
-            setCurrentImage(Image);
-        }
-    };
+    const [scene, setScene] = useState(dataScene['area1']);
+
+    const hotSpots = (element, i) => {
+        if (element.cssClass === 'moveScene')
+            return (
+                <Pannellum.Hotspot
+                    key={i}
+                    type="custom"
+                    pitch={element.pitch}
+                    yaw={element.yaw}
+                    handleClick = {() => setScene(dataScene[element.scene])}
+                    cssClass={element.cssClass}
+                />
+            )
+    }
 
     return (
         <div>
             <Pannellum
                 width="100%"
                 height="100vh"
-                image={currentImage}
-                pitch={10}
-                yaw={180}
+                title={scene.title}
+                image={scene.image}
+                pitch={scene.pitch}
+                yaw={scene.yaw}
                 hfov={110}
                 autoLoad
-                onLoad={() => {
-                    console.log('Panorama loaded');
-                }}
+                showZoomCtrl={false}
+                showFullscreenCtrl={false}
+                hotspotDebug={true}
             >
-                <Pannellum.Hotspot
-                    type="custom"
-                    pitch={5}
-                    yaw={100}
-                    handleClick={handleHotspotClick}
-                    handleClickArg={{}}
-                    cssClass="custom-hotspot"
-                />
-
-                <Pannellum.Hotspot
-                    type="info"
-                    pitch={31}
-                    yaw={-107}
-                    text="Info Hotspot Text 4"
-                />
+                {Object.values(scene.hotSpots).map((element, i) => hotSpots(element, i))}
             </Pannellum>
         </div>
     );
