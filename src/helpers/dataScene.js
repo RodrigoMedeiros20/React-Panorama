@@ -38,6 +38,14 @@ const Scene = {
                 cssClass: 'moveScene',
                 scene: 'centerArea1',
             },
+
+            backScene: {
+                type: 'custom',
+                pitch: 3.7,
+                yaw: 125.3,
+                cssClass: 'moveScene',
+                scene: 'area1', 
+            }
         }
     },
 
